@@ -5,8 +5,8 @@ var lightTheme = ThemeData(
   useMaterial3: true,
   colorScheme: const ColorScheme.light(
     primary: lightPrimaryColor,
-    background: lightBColor,
-    onBackground: lightFontColor,
+    surface: lightBColor,
+    onSurface: lightFontColor,
     primaryContainer: lightDeepColor,
     onPrimaryContainer: lightFontColor,
     onSecondaryContainer: lightLabelColor,
@@ -16,8 +16,8 @@ var darkTheme = ThemeData(
   useMaterial3: true,
   colorScheme: const ColorScheme.dark(
     primary: darkPrimaryColor,
-    background: darkBColor,
-    onBackground: darkFontColor,
+    surface: darkBColor,
+    onSurface: darkFontColor,
     primaryContainer: darkDeepColor,
     onPrimaryContainer: darkFontColor,
     onSecondaryContainer: darkLabelColor,
