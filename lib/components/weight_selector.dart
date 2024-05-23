@@ -1,11 +1,14 @@
 import 'package:bmi_app/components/icon_button.dart';
+import 'package:bmi_app/controllers/bmi_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WeightSelector extends StatelessWidget {
   const WeightSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BmiController bmiController = Get.put(BmiController());
     return Container(
       height: 200,
       padding: const EdgeInsets.all(10),
@@ -25,12 +28,14 @@ class WeightSelector extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                '45',
-                style: TextStyle(
-                  fontSize: 70,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onSecondaryContainer,
+              Obx(
+                () => Text(
+                  "${bmiController.weight.value}",
+                  style: TextStyle(
+                    fontSize: 70,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
                 ),
               ),
             ],
@@ -39,8 +44,18 @@ class WeightSelector extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButtons(onPressed: () {}, icon: Icons.add),
-              IconButtons(onPressed: () {}, icon: Icons.minimize),
+              IconButtons(
+                onPressed: () {
+                  bmiController.weight.value++;
+                },
+                icon: Icons.add,
+              ),
+              IconButtons(
+                onPressed: () {
+                  bmiController.weight.value--;
+                },
+                icon: Icons.minimize,
+              ),
             ],
           ),
         ],
