@@ -7,12 +7,16 @@ import 'package:bmi_app/controllers/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../components/bottom_button.dart';
+import '../controllers/bmi_controller.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     ThemeController themeController = Get.put(ThemeController());
+    BmiController bmiController = Get.put(BmiController());
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
@@ -48,13 +52,17 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   PrimaryButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      bmiController.gengerHandle("Male");
+                    },
                     icon: Icons.male,
                     buttonText: "Male",
                   ),
                   const SizedBox(width: 10),
                   PrimaryButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      bmiController.gengerHandle("Female");
+                    },
                     icon: Icons.female,
                     buttonText: "Female",
                   ),
@@ -85,7 +93,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 20),
               SizedBox(
                 height: 50,
-                child: PrimaryButton(
+                child: BottomButton(
                   icon: Icons.done,
                   buttonText: "Lets go",
                   onPressed: () {},
