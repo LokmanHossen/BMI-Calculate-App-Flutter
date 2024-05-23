@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
+
+import '../controllers/bmi_controller.dart';
 
 class HeightSelector extends StatelessWidget {
   const HeightSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BmiController bmiController = Get.put(BmiController());
     return Expanded(
       child: Container(
         padding: const EdgeInsets.all(10),
@@ -19,7 +23,7 @@ class HeightSelector extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Height",
+                  "Height(CM)",
                   style: TextStyle(
                     fontSize: 15,
                     color: Theme.of(context).colorScheme.onSecondaryContainer,
@@ -28,20 +32,26 @@ class HeightSelector extends StatelessWidget {
               ],
             ),
             Expanded(
-              child: SfSlider.vertical(
-                min: 50,
-                max: 300,
-                value: 150,
-                interval: 25,
-                showTicks: true,
-                showLabels: true,
-                enableTooltip: true,
-                minorTicksPerInterval: 5,
-                onChanged: (dynamic value) {
-                  // setState(() {
-                  //   _value = value;
-                  // });
-                },
+              child: Obx(
+                () => SfSlider.vertical(
+                  min: 50,
+                  max: 250,
+                  value: bmiController.height.value,
+                  interval: 25,
+                  showTicks: true,
+                  showLabels: true,
+                  enableTooltip: true,
+                  minorTicksPerInterval: 5,
+                  activeColor: Theme.of(context).colorScheme.primary,
+                  inactiveColor:
+                      Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                  onChanged: (dynamic value) {
+                    bmiController.height.value = value;
+                    // setState(() {
+                    //   _value = value;
+                    // });
+                  },
+                ),
               ),
             )
           ],
