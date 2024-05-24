@@ -11,7 +11,7 @@ class AgeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     BmiController bmiController = Get.put(BmiController());
     return Container(
-      height: 200,
+      height: 230,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -25,7 +25,7 @@ class AgeSelector extends StatelessWidget {
               Text('Age'),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 35),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
