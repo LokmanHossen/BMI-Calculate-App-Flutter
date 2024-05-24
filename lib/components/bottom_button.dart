@@ -16,10 +16,12 @@ class BottomButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         height: 50,
+        width: 250,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).colorScheme.primary),
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.amber.shade800,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -27,11 +29,11 @@ class BottomButton extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               buttonText,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
-                  color: Theme.of(context).colorScheme.primaryContainer),
+                  color: Colors.black),
             ),
           ],
         ),

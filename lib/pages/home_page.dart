@@ -31,7 +31,8 @@ class HomePage extends StatelessWidget {
                     "Welcome😊",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -95,13 +96,14 @@ class HomePage extends StatelessWidget {
                 height: 50,
                 child: BottomButton(
                   icon: Icons.done_all_rounded,
-                  buttonText: "Lets go",
+                  buttonText: "Calculate Result",
                   onPressed: () {
                     bmiController.calculateBMI();
                     Get.to(() => const ResultPage());
                   },
                 ),
               ),
+              const SizedBox(height: 20)
             ],
           ),
         ),
