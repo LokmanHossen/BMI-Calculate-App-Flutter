@@ -3,7 +3,7 @@ import 'package:bmi_app/components/height_selector.dart';
 import 'package:bmi_app/components/primary_button.dart';
 import 'package:bmi_app/components/theme_change_button.dart';
 import 'package:bmi_app/components/weight_selector.dart';
-import 'package:bmi_app/controllers/theme_controller.dart';
+import 'package:bmi_app/pages/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,13 +15,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeController themeController = Get.put(ThemeController());
+    // ThemeController themeController = Get.put(ThemeController());
     BmiController bmiController = Get.put(BmiController());
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(18),
           child: Column(
             children: [
               const ThemeChangeButton(),
@@ -79,10 +79,10 @@ class HomePage extends StatelessWidget {
                     SizedBox(width: 15),
                     Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          SizedBox(height: 60),
                           WeightSelector(),
-                          SizedBox(height: 20),
+                          SizedBox(height: 40),
                           AgeSelector(),
                         ],
                       ),
@@ -94,9 +94,12 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 50,
                 child: BottomButton(
-                  icon: Icons.done,
+                  icon: Icons.done_all_rounded,
                   buttonText: "Lets go",
-                  onPressed: () {},
+                  onPressed: () {
+                    bmiController.calculateBMI();
+                    Get.to(() => const ResultPage());
+                  },
                 ),
               ),
             ],
