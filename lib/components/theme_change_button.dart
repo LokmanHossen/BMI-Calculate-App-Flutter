@@ -31,10 +31,10 @@ class ThemeChangeButton extends StatelessWidget {
                     themeController.changeTheme();
                   },
                   icon: Icon(
-                    Icons.light_mode,
+                    Icons.dark_mode,
                     color: themeController.isDark.value
-                        ? Theme.of(context).colorScheme.onSecondaryContainer
-                        : Theme.of(context).colorScheme.primary,
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.onSecondaryContainer,
                   ),
                 ),
                 IconButton(
@@ -42,10 +42,10 @@ class ThemeChangeButton extends StatelessWidget {
                     themeController.changeTheme();
                   },
                   icon: Icon(
-                    Icons.dark_mode,
+                    Icons.light_mode,
                     color: themeController.isDark.value
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onSecondaryContainer,
+                        ? Theme.of(context).colorScheme.onSecondaryContainer
+                        : Theme.of(context).colorScheme.primary,
                   ),
                 ),
               ],
