@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const lightBColor = Color(0xffD1D9E6);
+const lightBColor = Color(0xFF7A8291);
 const lightPrimaryColor = Color(0xff246AFE);
 const lightLabelColor = Color(0xff8C8C8C);
 const lightDeepColor = Color(0xffFFFFFF);
