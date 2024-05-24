@@ -10,12 +10,13 @@ class WeightSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     BmiController bmiController = Get.put(BmiController());
     return Container(
-      height: 200,
+      height: 230,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Theme.of(context).colorScheme.primaryContainer,
       ),
+      
       child: Column(
         children: [
           const Row(
@@ -24,7 +25,7 @@ class WeightSelector extends StatelessWidget {
               Text('Weight'),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 35),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
